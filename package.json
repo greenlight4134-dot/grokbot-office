@@ -1,0 +1,22 @@
+{
+  "name": "grokbot-office",
+  "version": "1.0.0",
+  "description": "GrokBot Office — 봇 관제실 (Three.js 아이소메트릭 오피스 + 실시간 상태 API)",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "start:mine": "OFFICE_PRESET=mine node server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0",
+    "three": "^0.187.0",
+    "ws": "^8.22.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
