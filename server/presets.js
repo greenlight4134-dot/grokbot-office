@@ -129,18 +129,6 @@ const mine = {
         { title: '봇 상태 점검', steps: [
           { s: 'coding', a: '크루 헬스체크 중' },
           { s: 'coding', a: '모두 정상 작동 중' } ] } ] },
-    { id: 'trump', desk: 2, name: '트럼프 서칭', role: '서칭', shape: 'sphere', color: '#ff3b5c',
-      idle: ['대기 중', '쉬는 중'],
-      tasks: [
-        { title: '검색 요청 처리', steps: [
-          { s: 'browsing', a: '요청받은 주제 검색 중' },
-          { s: 'coding', a: '검색 결과 정리 중' } ] } ] },
-    { id: 'notify', desk: 8, name: '알려줘', role: '알림', shape: 'egg', color: '#ffc531',
-      idle: ['알림 대기 중', '충전 중'],
-      tasks: [
-        { title: '알림 정리', steps: [
-          { s: 'coding', a: '알림 큐 정리 중' },
-          { s: 'coding', a: '알림 전달 완료' } ] } ] },
   ],
 };
 
