@@ -1,0 +1,66 @@
+/* ---------- GrokBot Office · phone layout. Only applies on touch screens up to 768px wide; desktop is untouched. ---------- */
+.sheet-handle,#tickToggle{display:none}
+@media (max-width:768px) and (pointer:coarse){
+  #stage canvas{touch-action:none}
+  html,body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+  #topbar{padding:calc(env(safe-area-inset-top) + 8px) 10px 8px;gap:6px;flex-wrap:nowrap}
+  .brand{gap:7px;min-width:0}
+  .title{font-size:15px}
+  .subtitle{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
+  .logo{height:18px}.logo i{width:7px}
+  .actions{gap:5px}
+  .seg,.chip,.user{height:32px}
+  .seg button{padding:0 7px}.seg button span{display:none}
+  .chip{padding:0 8px;gap:5px;font-size:11.5px}
+  .chip span[data-i18n]{display:none}
+  .user{padding:0 6px 0 3px;height:32px}
+  .user>div:not(.avatar):not(.menu){display:none}
+  .user .chev{display:none}
+  .menu{position:fixed;right:10px;top:calc(env(safe-area-inset-top) + 50px);min-width:0;width:min(300px,calc(100vw - 20px))}
+  .menu button,.menu a{padding:11px 10px;font-size:13.5px}
+
+  /* crew list -> bottom sheet */
+  #crew{left:0;right:0;top:auto;bottom:0;width:auto;border-radius:18px 18px 0 0;border-bottom:0;
+    padding:4px 8px calc(env(safe-area-inset-bottom) + 8px);max-height:var(--sheet-max,46vh);overflow:auto;transition:max-height .28s cubic-bezier(.2,.9,.3,1);overscroll-behavior:contain}
+  #crew.collapsed{max-height:var(--sheet-min,150px);overflow:hidden}
+  .sheet-handle{display:block;width:100%;height:22px;border:0;background:none;padding:0;position:sticky;top:-4px;z-index:2}
+  .sheet-handle:before{content:'';display:block;width:42px;height:5px;border-radius:3px;background:rgba(255,255,255,.28);margin:8px auto}
+  #crew .crew-h{padding:0 8px 6px}
+  #crewList{display:grid;grid-template-columns:1fr;gap:2px}
+  .crew-row{padding:10px 8px}
+  .crew-row .nm{font-size:14px}.crew-row .ac{font-size:12px}
+  .pipe{margin:8px 2px 2px}
+  .stage{padding:8px 2px}
+
+  body.sheet-panel #crew{display:none}
+
+  /* detail / task board -> bottom sheet on top of the crew sheet */
+  #panel{left:0;right:0;top:auto;bottom:0;width:auto;border-radius:18px 18px 0 0;border-bottom:0;z-index:12;
+    max-height:64vh;padding:14px 14px calc(env(safe-area-inset-bottom) + 16px);animation:sheetin .3s cubic-bezier(.2,.9,.3,1);overscroll-behavior:contain}
+  @keyframes sheetin{from{opacity:.4;transform:translateY(40%)}to{opacity:1;transform:none}}
+  #panel:before{content:'';display:block;width:42px;height:5px;border-radius:3px;background:rgba(255,255,255,.28);margin:-6px auto 10px}
+  .ph .back,.ph .x{width:34px;height:34px;font-size:18px}
+  .ask .row{gap:10px}
+  .ask .btn,.btn{flex:1;padding:14px 12px;font-size:14.5px}
+  .tab{padding:8px 12px;font-size:12px}
+  .timeline li{font-size:12.5px}
+
+  /* ticker: only the newest line, under the top bar */
+  #ticker{left:10px;right:52px;width:auto;top:calc(env(safe-area-inset-top) + 52px);bottom:auto;gap:4px}
+  #ticker .tick{padding:6px 9px;font-size:11px}
+  body:not(.tick-open) #ticker .tick:not(:last-child){display:none}
+  body.tick-off #ticker{display:none}
+  #tickToggle{display:grid;place-items:center;position:fixed;right:10px;top:calc(env(safe-area-inset-top) + 52px);z-index:10;width:34px;height:30px;border-radius:8px;
+    background:rgba(14,16,24,.72);border:1px solid var(--line);backdrop-filter:blur(12px);color:#c9cedb;font-size:13px;padding:0}
+  #tooltip{display:none!important}
+
+  #zoom{right:10px;bottom:calc(var(--sheet-h,150px) + 10px);flex-direction:column;transition:bottom .28s}
+  #zoom button{width:38px;height:38px;font-size:19px}
+  #toast{bottom:calc(var(--sheet-h,150px) + 16px);max-width:calc(100vw - 28px);white-space:normal;letter-spacing:.03em}
+  #modal{padding:20px 16px;max-height:86vh}
+  .modal-foot{flex-direction:column}
+  .modal-foot input{height:44px;font-size:15px}
+  .plate{font-size:11px;padding:4px 8px}
+  .bubble{max-width:170px;font-size:11px}
+  #planet{width:160vw;height:160vw;left:-60vw;bottom:-40vh}
+}
